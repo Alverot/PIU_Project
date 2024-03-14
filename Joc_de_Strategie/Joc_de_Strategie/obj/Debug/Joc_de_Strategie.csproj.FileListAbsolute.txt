@@ -1,0 +1,8 @@
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\obj\Debug\Joc_de_Strategie.csproj.AssemblyReference.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\obj\Debug\Joc_de_Strategie.csproj.SuggestedBindingRedirects.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\obj\Debug\Joc_de_Strategie.csproj.CoreCompileInputs.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\bin\Debug\Joc_de_Strategie.exe.config
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\bin\Debug\Joc_de_Strategie.exe
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\bin\Debug\Joc_de_Strategie.pdb
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\obj\Debug\Joc_de_Strategie.exe
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Joc_de_Strategie\obj\Debug\Joc_de_Strategie.pdb
