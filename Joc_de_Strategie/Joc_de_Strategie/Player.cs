@@ -35,13 +35,14 @@ namespace Joc_de_Strategie
 
         //methods
 
-        public void PlayerInfo()
+        public string PlayerInfo()
         {
-            Console.WriteLine("Player resoureces:\n");
-            Console.WriteLine($"food  : {food}");
-            Console.WriteLine($"wood  : {wood}");
-            Console.WriteLine($"stone : {stone}");
-            Console.WriteLine($"gold  : {gold}");
+            string info = string.Format("Player resourses : \n" +
+                "food  : {0} \n" +
+                "wood  : {0} \n" +
+                "stone  : {0} \n" +
+                "gold  : {0} \n", food, wood , stone, gold);
+            return info;
         }
 
 

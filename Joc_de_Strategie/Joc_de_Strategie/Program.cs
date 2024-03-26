@@ -11,18 +11,24 @@ namespace Joc_de_Strategie
         static void Main(string[] args)
         {
 
+
+            //cod pentru teste
             Tile tile = new Tile();
-            tile.TileInfo();
-            Console.WriteLine("\n\n");
+            string info = tile.TileInfo();
+            Console.WriteLine(info);
             Tile test = new Tile(2,1,7,1);
-            test.TileInfo();
-            Console.WriteLine("\n\n");
+            Console.WriteLine(test.TileInfo());
+
+            
             Player player = new Player();
-            player.PlayerInfo();
-            Console.WriteLine("\n\n");
+            Console.WriteLine(player.PlayerInfo());
             Player player1 = new Player(99,2343,32,0);
-            player1.PlayerInfo();
+            Console.WriteLine(player1.PlayerInfo());
             Console.ReadKey();
+
+            
+
+
         }
     }
 }

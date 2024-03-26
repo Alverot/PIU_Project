@@ -10,8 +10,8 @@ namespace Joc_de_Strategie
     {
         //this class will be used in a chess like table and one object of this class will be a square in the board
         int TerrainType;   //this can be 1 = plain/2 = fores/3 = mountain  maybe more types if i have time
-        int SettelmentType;   //i have not decided yet on the types 0= none
-        int SettelmentLevel;  // will be from 1 to 10 and 0 if nothing exists
+        int SettlementType;   //i have not decided yet on the types 0= none
+        int SettlementLevel;  // will be from 1 to 10 and 0 if nothing exists
         int PlayerControl;     //value from 0 to 8 . 0 means nobody controls it 1 to 8 means player 1 ,player 2 ....
 
         //constructors
@@ -19,16 +19,16 @@ namespace Joc_de_Strategie
         {
             
             TerrainType = 1;
-            SettelmentType = 0;
-            SettelmentLevel = 0;
+            SettlementType = 0;
+            SettlementLevel = 0;
             PlayerControl = 0;
 
         }
         public Tile(int TerrainType, int SettelmentType, int SettelmentLevel, int PlayerControl)//all args constructor
         {
             this.TerrainType = TerrainType; 
-            this.SettelmentType = SettelmentType;
-            this.SettelmentLevel = SettelmentLevel;
+            this.SettlementType = SettelmentType;
+            this.SettlementLevel = SettelmentLevel;
             this.PlayerControl = PlayerControl;
         }
         //setters
@@ -36,34 +36,40 @@ namespace Joc_de_Strategie
         //geters
 
         //methods
-        public void TileInfo()
+        public string TileInfo()
         {
-            if (TerrainType == 1) { Console.WriteLine("Terrain Type :plain\n"); }
-            else if (TerrainType == 2) { Console.WriteLine("Terrain Type :forest\n"); }
-            else if (TerrainType == 3) { Console.WriteLine("Terrain Type :mountain\n"); }
 
-            if (SettelmentType == 0)
+            string info =string.Format("INFO : \n");
+            //info = info + string.Format("");
+            if (TerrainType == 1) 
             { 
-                Console.WriteLine("Settelment : none\n");
-            } 
-            else if(SettelmentType == 1)
-            {
-                Console.WriteLine("Settelment : city\n"); 
+                info = info + string.Format("Terrain Type :plain\n");
             }
-            if (SettelmentType != 0)
+            else if (TerrainType == 2) { info = info + string.Format("Terrain Type :forest\n"); }
+            else if (TerrainType == 3) { info = info + string.Format("Terrain Type :mountain\n"); }
+
+            if (SettlementType == 0)
             {
-                Console.WriteLine($"Settelment level : {SettelmentLevel} \n" );
+                info = info + string.Format("Settelment : none\n");
+            } 
+            else if(SettlementType == 1)
+            {
+                info = info + string.Format("Settelment : city\n");
+            }
+            if (SettlementType != 0)
+            {
+                info = info + string.Format("Settelment level : {0}\n",SettlementLevel);
             }
 
             if (PlayerControl == 0)
             {
-                Console.WriteLine("This tile belongs to no one\n");
+                info = info + string.Format("This tile belongs to no one\n");
             }
             else 
             {
-                Console.WriteLine($"This tile belongs to Player {PlayerControl}");
+                info = info + string.Format("This tile belongs to Player {0}\n", PlayerControl);
             }
-
+            return info;
         }
     }
 }
