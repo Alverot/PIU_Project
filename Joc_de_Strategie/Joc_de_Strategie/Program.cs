@@ -41,10 +41,11 @@ namespace Joc_de_Strategie
             //temporaty
             MapGenerator MAPPP = new MapGenerator();//temporaty
             Console.WriteLine(MAPPP.PrintMAP());
-            MAPPP.SetTyle(1, 1, 2, 3, 1, 1);
-            MAPPP.SetTyle(1, 2, 2, 3, 1, 1);
-            MAPPP.SetTyle(0, 1, 2, 3, 1, 1);
-            MAPPP.SetTyle(2, 1, 2, 3, 1, 1);
+            MAPPP.SetTylePlayer(1, 1, 1);
+            MAPPP.SetTylePlayer(1, 2, 1);
+            MAPPP.SetTylePlayer(0, 1, 1);
+            MAPPP.SetTylePlayer(2, 1, 1);
+            MAPPP.SetTylePlayer(1, 0, 1);
             Console.WriteLine(MAPPP.PrintMAP());
 
             Console.ReadKey();

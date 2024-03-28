@@ -34,6 +34,10 @@ namespace ClassLibraryForProject
             MAP[i, j].SettlementLevel = l;
             MAP[i, j].PlayerControl = p;
         }
+        public void SetTylePlayer(int i, int j, int p)
+        {
+            MAP[i, j].PlayerControl = p;
+        }
 
         public string PrintMAP()
         {
