@@ -1,0 +1,9 @@
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\bin\Debug\Nivel_stocare_date.dll
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\bin\Debug\Nivel_stocare_date.pdb
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\obj\Debug\Nivel_stocare_date.csproj.AssemblyReference.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\obj\Debug\Nivel_stocare_date.csproj.CoreCompileInputs.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\obj\Debug\Nivel_stocare_date.dll
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\obj\Debug\Nivel_stocare_date.pdb
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\bin\Debug\ClassLibraryForProject.dll
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\bin\Debug\ClassLibraryForProject.pdb
+D:\GITHUB\PIU_Project\Joc_de_Strategie\Nivel_stocare_date\obj\Debug\Nivel_stocare_date.csproj.CopyComplete

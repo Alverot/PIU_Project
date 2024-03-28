@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joc_de_Strategie", "Joc_de_Strategie\Joc_de_Strategie.csproj", "{86A6D38C-3FA0-4403-BD49-266C070D5D7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nivel_stocare_date", "Nivel_stocare_date\Nivel_stocare_date.csproj", "{20A6CEF0-662E-431F-818C-CF968B548036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryForProject", "ClassLibraryForProject\ClassLibraryForProject.csproj", "{4B2491B2-8B9F-46CC-9A87-1865C69A371E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{86A6D38C-3FA0-4403-BD49-266C070D5D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86A6D38C-3FA0-4403-BD49-266C070D5D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86A6D38C-3FA0-4403-BD49-266C070D5D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A6CEF0-662E-431F-818C-CF968B548036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A6CEF0-662E-431F-818C-CF968B548036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A6CEF0-662E-431F-818C-CF968B548036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A6CEF0-662E-431F-818C-CF968B548036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2491B2-8B9F-46CC-9A87-1865C69A371E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2491B2-8B9F-46CC-9A87-1865C69A371E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2491B2-8B9F-46CC-9A87-1865C69A371E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2491B2-8B9F-46CC-9A87-1865C69A371E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
