@@ -87,7 +87,7 @@ namespace ClassLibraryForProject
         public string PrintTile()
         {
 
-            string tile = String.Format("{0} {1} {2} {3} |", TerrainType,SettlementType,SettlementLevel,PlayerControl);
+            string tile = String.Format("{0} {1} {2} {3}|", TerrainType,SettlementType,SettlementLevel,PlayerControl);
             return tile;
         }
     }

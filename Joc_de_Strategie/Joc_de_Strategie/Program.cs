@@ -55,14 +55,16 @@ namespace Joc_de_Strategie
             do
             {
                 Console.Clear();
-                Console.WriteLine("\nMenu");
+                Console.WriteLine("Menu");
                 Console.WriteLine("N-New game");
                 Console.WriteLine("L-Load game");
                 Console.WriteLine("I-Info");
+
                 //Sectiune temporara pentru teste
-                Console.WriteLine("P-generate and printmap(temporaty)");
+                Console.WriteLine("P-generate and printmap and save(temporaty)");
                 Console.WriteLine("S-search and print all player tiles(temporaty)");
                 //Sectiune temporara pentru teste
+
                 Console.WriteLine("X-EXIT");
 
                 opt = Console.ReadLine();
@@ -76,8 +78,8 @@ namespace Joc_de_Strategie
                         Console.ReadKey();
                         break;
                     case "L":
-                        Console.WriteLine("tst2");
-                        SaveManager_text_files.SaveGame(player1, CurrentSave);
+                        Console.WriteLine("(Temporat) salveaza niste date in fisierul text selectat");
+                        SaveManager_text_files.SaveGame(player1,1, CurrentSave, MAPPP);
                         Console.ReadKey();
                         break;
                     case "I":
@@ -91,6 +93,8 @@ namespace Joc_de_Strategie
                         MapGenerator MAPP = new MapGenerator();
                        
                         Console.WriteLine(MAPP.PrintMAP());
+                        Console.WriteLine("(Temporat) salveaza niste date in fisierul text selectat");
+                        SaveManager_text_files.SaveGame(player1, 1, CurrentSave, MAPPP);
                         Console.ReadKey();
                         break;
                     case "S":

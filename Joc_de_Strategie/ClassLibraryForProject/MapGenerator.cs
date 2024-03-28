@@ -49,19 +49,20 @@ namespace ClassLibraryForProject
                     mapp = mapp + MAP[i,j].PrintTile();
                 }
                 mapp = mapp + String.Format("\n__________________________________________" +
-                    "________________________________________________\n");
+                    "_____________________________________\n");
             }
             return mapp;
         }
         public string ConvertMAPForSave()
         {
-            string mapp = String.Format("MAP : \n");
+            string mapp = String.Format("{0}\n",size);
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
                     mapp = mapp + MAP[i, j].PrintTile();
                 }
+                mapp = mapp + String.Format("\n");
             }
             return mapp;
         }
