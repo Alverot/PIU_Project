@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86A6D38C-3FA0-4403-BD49-266C070D5D7E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Joc_de_Strategie</RootNamespace>
-    <AssemblyName>Joc_de_Strategie</AssemblyName>
+    <ProjectGuid>{4B2491B2-8B9F-46CC-9A87-1865C69A371E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassLibraryForProject</RootNamespace>
+    <AssemblyName>ClassLibraryForProject</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,21 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="MapGenerator.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="RandomGeneratorForMultipleUses.cs" />
+    <Compile Include="Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibraryForProject\ClassLibraryForProject.csproj">
-      <Project>{4b2491b2-8b9f-46cc-9a87-1865c69a371e}</Project>
-      <Name>ClassLibraryForProject</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Nivel_stocare_date\Nivel_stocare_date.csproj">
-      <Project>{20a6cef0-662e-431f-818c-cf968b548036}</Project>
-      <Name>Nivel_stocare_date</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

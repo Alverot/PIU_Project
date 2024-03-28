@@ -1,0 +1,6 @@
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\bin\Debug\ClassLibraryForProject.dll
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\bin\Debug\ClassLibraryForProject.pdb
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\obj\Debug\ClassLibraryForProject.csproj.AssemblyReference.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\obj\Debug\ClassLibraryForProject.csproj.CoreCompileInputs.cache
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\obj\Debug\ClassLibraryForProject.dll
+D:\GITHUB\PIU_Project\Joc_de_Strategie\ClassLibraryForProject\obj\Debug\ClassLibraryForProject.pdb
