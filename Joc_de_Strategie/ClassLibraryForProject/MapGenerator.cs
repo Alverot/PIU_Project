@@ -29,8 +29,8 @@ namespace ClassLibraryForProject
         public void SetTyle(int i, int j,int t, int s, int l, int p)
         {
             
-            MAP[i, j].TerrainType = t;
-            MAP[i,j].SettlementType = s;
+            MAP[i, j].TerrainTypePR = t;
+            MAP[i,j].SettlementTypePR = s;
             MAP[i, j].SettlementLevel = l;
             MAP[i, j].PlayerControl = p;
         }

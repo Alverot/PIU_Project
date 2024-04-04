@@ -16,7 +16,7 @@ namespace ClassLibraryForProject
             Random random = new Random();
             for(int i = 0; i < size;i++)
             {
-                int rnunber = random.Next(1,4);
+                int rnunber = random.Next(1,5);
                 randomArray[i] = rnunber;
             }
             return randomArray;

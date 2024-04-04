@@ -25,8 +25,8 @@ namespace Joc_de_Strategie
             Tile tile = new Tile();
             string info = tile.TileInfo();
             //Console.WriteLine(info);
-            Tile test = new Tile(2,1,7,1);
-            //Console.WriteLine(test.TileInfo());
+            Tile test = new Tile(2,3,7,1);
+            Console.WriteLine(test.TileInfo());
 
             
             Player player = new Player();
@@ -40,6 +40,8 @@ namespace Joc_de_Strategie
             
             //temporaty
             MapGenerator MAPPP = new MapGenerator();//temporaty
+            int plNumber = 8;
+            PlayersManager players = new PlayersManager(plNumber);
             Console.WriteLine(MAPPP.PrintMAP());
             MAPPP.SetTylePlayer(1, 1, 1);
             MAPPP.SetTylePlayer(1, 2, 1);
@@ -79,7 +81,7 @@ namespace Joc_de_Strategie
                         break;
                     case "L":
                         Console.WriteLine("(Temporat) salveaza niste date in fisierul text selectat");
-                        SaveManager_text_files.SaveGame(player1,1, CurrentSave, MAPPP);
+                        SaveManager_text_files.SaveGame(players, CurrentSave, MAPPP);
                         Console.ReadKey();
                         break;
                     case "I":
@@ -94,7 +96,7 @@ namespace Joc_de_Strategie
                        
                         Console.WriteLine(MAPP.PrintMAP());
                         Console.WriteLine("(Temporat) salveaza niste date in fisierul text selectat");
-                        SaveManager_text_files.SaveGame(player1, 1, CurrentSave, MAPPP);
+                        //SaveManager_text_files.SaveGame(player1, 1, CurrentSave, MAPPP);
                         Console.ReadKey();
                         break;
                     case "S":

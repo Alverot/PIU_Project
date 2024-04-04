@@ -53,7 +53,7 @@ namespace ClassLibraryForProject
         }
         public string ConvetPlayerForSave(int playerNB)
         {
-            string info = string.Format("{0}|{1}|{2}|{3}|{4}", playerNB,Food, Wood, Stone, Gold);
+            string info = string.Format("{0}|{1}|{2}|{3}|{4}\n", playerNB,Food, Wood, Stone, Gold);
             return info;
         }
 
