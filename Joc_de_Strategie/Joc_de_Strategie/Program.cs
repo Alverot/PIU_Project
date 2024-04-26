@@ -17,40 +17,12 @@ namespace Joc_de_Strategie
         {
 
             string CurrentSave = ConfigurationManager.AppSettings["NumeFisier0"];
-            SaveManager_text_files file = new SaveManager_text_files(CurrentSave);
+            //SaveManager_text_files file = new SaveManager_text_files(CurrentSave);
 
-
-            //cod pentru teste
-            
-            Tile tile = new Tile();
-            string info = tile.TileInfo();
-            //Console.WriteLine(info);
-            Tile test = new Tile(2,3,7,1);
-            Console.WriteLine(test.TileInfo());
-
-            
-            Player player = new Player();
-            //Console.WriteLine(player.PlayerInfo());
-            
-            Player player1 = new Player(99,2343,32,0);
-            //Console.WriteLine(player1.PlayerInfo());
-
-            player1.Food = 122;
-            //Console.WriteLine(player1.PlayerInfo());
-            
             //temporaty
             MapGenerator MAPPP = new MapGenerator();//temporaty
-            int plNumber = 8;
+            int plNumber = 7;
             PlayersManager players = new PlayersManager(plNumber);
-            Console.WriteLine(MAPPP.PrintMAP());
-            MAPPP.SetTylePlayer(1, 1, 1);
-            MAPPP.SetTylePlayer(1, 2, 1);
-            MAPPP.SetTylePlayer(0, 1, 1);
-            MAPPP.SetTylePlayer(2, 1, 1);
-            MAPPP.SetTylePlayer(1, 0, 1);
-            Console.WriteLine(MAPPP.PrintMAP());
-
-            Console.ReadKey();
             //temporaty
 
             string opt;
@@ -143,19 +115,19 @@ namespace Joc_de_Strategie
                         {
                             case 1:
                                 CurrentSave = ConfigurationManager.AppSettings["NumeFisier0"];
-                                SaveManager_text_files file1 = new SaveManager_text_files(CurrentSave);
+                                //SaveManager_text_files file1 = new SaveManager_text_files(CurrentSave);
                                 break;
                             case 2:
                                 CurrentSave = ConfigurationManager.AppSettings["NumeFisier1"];
-                                SaveManager_text_files file2 = new SaveManager_text_files(CurrentSave);
+                                //SaveManager_text_files file2 = new SaveManager_text_files(CurrentSave);
                                 break;
                             case 3:
                                 CurrentSave = ConfigurationManager.AppSettings["NumeFisier2"];
-                                SaveManager_text_files file3 = new SaveManager_text_files(CurrentSave);
+                                //SaveManager_text_files file3 = new SaveManager_text_files(CurrentSave);
                                 break;
                             case 4:
                                 CurrentSave = ConfigurationManager.AppSettings["NumeFisier3"];
-                                SaveManager_text_files file4 = new SaveManager_text_files(CurrentSave);
+                                //SaveManager_text_files file4 = new SaveManager_text_files(CurrentSave);
                                 break;
                         }
                         ok = 1;
