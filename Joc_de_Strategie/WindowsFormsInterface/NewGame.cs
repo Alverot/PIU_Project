@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryForProject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,18 @@ namespace WindowsFormsInterface
 {
     public partial class NewGame : Form
     {
-        protected static int PlayerNumber = 0;
-        protected static int MapNumber = 0;
-        protected static int Savefile = 0;
+        protected static int PlayerNumberNG = 0;
+        protected static int MapNumberNG = 0;
+        protected static int SavefileNG = 0;
         private Label error;
+        
 
-        public static int GetPlayerNumber()
+        public static int GetPlayerNumberNG()
         {
-            return PlayerNumber;
+            return PlayerNumberNG;
         }
-        public static int GetMapNumber() { return MapNumber; }
-        public static int GetSavefile() { return Savefile; }
+        public static int GetMapNumberNG() { return MapNumberNG; }
+        public static int GetSavefileNG() { return SavefileNG; }
         public NewGame()
         {
             InitializeComponent();
@@ -50,10 +52,10 @@ namespace WindowsFormsInterface
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(PlayerNumber != 0 && MapNumber != 0 && Savefile != 0)
+            if(PlayerNumberNG != 0 && MapNumberNG != 0 && SavefileNG != 0)
             {
                 this.Hide();
-                var map = new Map();
+                var map = new GameScreen();
                 map.Closed += (s, args) => this.Close();
                 map.Show();
             }
@@ -76,31 +78,31 @@ namespace WindowsFormsInterface
             string selectedOption = listBox1.SelectedItem.ToString();
             if (selectedOption == "2 Players")
             {
-                PlayerNumber = 2;
+                PlayerNumberNG = 2;
             }
             else if (selectedOption == "3 Players")
             {
-                PlayerNumber = 3;
+                PlayerNumberNG = 3;
             }
             else if(selectedOption == "4 Players")
             {
-                PlayerNumber= 4;
+                PlayerNumberNG = 4;
             }
             else if (selectedOption == "5 Players")
             {
-                PlayerNumber = 5;
+                PlayerNumberNG = 5;
             }
             else if (selectedOption == "6 Players")
             {
-                PlayerNumber = 6;
+                PlayerNumberNG = 6;
             }
             else if (selectedOption == "7 Players")
             {
-                PlayerNumber = 7;
+                PlayerNumberNG = 7;
             }
             else if (selectedOption == "8 Players")
             {
-                PlayerNumber = 8;
+                PlayerNumberNG = 8;
             }
         }
 
@@ -111,11 +113,11 @@ namespace WindowsFormsInterface
             string selectedOption = listBox2.SelectedItem.ToString();
             if (selectedOption == "Random Map")
             {
-                MapNumber = 1;
+                MapNumberNG = 1;
             }
             else if (selectedOption == "The other ones are still in work")
             {
-                MapNumber = 0;
+                MapNumberNG = 0;
             }
             
         }
@@ -132,15 +134,15 @@ namespace WindowsFormsInterface
             string selectedOption = listBox3.SelectedItem.ToString();
             if (selectedOption == "Save_1")
             {
-                Savefile = 1;
+                SavefileNG = 1;
             }
             else if (selectedOption == "Save_2")
             {
-                Savefile = 2;
+                SavefileNG = 2;
             }
             else if (selectedOption == "Save_3")
             {
-                Savefile = 3;
+                SavefileNG = 3;
             }
         }
     }

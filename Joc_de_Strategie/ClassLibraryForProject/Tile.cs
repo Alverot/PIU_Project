@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClassLibraryForProject.Tile;
 
 namespace ClassLibraryForProject
 {
@@ -27,6 +28,7 @@ namespace ClassLibraryForProject
         };
         public enum Settlement_Type
         {
+            Empty = 0,
             Village = 1,
             City =2,
             Metropolis =3,
@@ -34,33 +36,43 @@ namespace ClassLibraryForProject
             Farm =5,
             Wood_cutting_camp=6
         };
-
-
-        private int TerrainType = 1;
-        private int SettlementType = 0; 
-        public int TerrainTypePR { set { TerrainType = value; } get {return TerrainType; } }    //this can be 1 = plain/ 2 = hill /3 = fores/3 = mountain  maybe more types if i have time
-        public int SettlementTypePR { set { SettlementType = value; } get { return SettlementType; } }  //i have not decided yet on the types 0= none
+        
+        public int TileNumber { get; set; }  //the number of the tyle in the map
+        public int TerrainType { set; get; }    //this can be 1 = plain/ 2 = hill /3 = fores/4 = mountain  maybe more types if i have time
+        public int SettlementType { set; get; }  //i have not decided yet on the types 0= none
         public int SettlementLevel { set; get; } // will be from 1 to 10 and 0 if nothing exists 
         public int PlayerControl { set; get; }   //value from 0 to 8 . 0 means nobody controls it 1 to 8 means player 1 ,player 2 ....
+        public int ArmyNumber { set; get; }    // the number of the army from the army array(each element of that aray will be an army)
+        public int ArmyOwner { set; get; }    //the player that owns the army
+
 
 
         //constructors
         public Tile()//no args constructor
         {
 
+            TileNumber = 0;
             TerrainType = 1;
             SettlementType = 0;
             SettlementLevel = 0;
             PlayerControl = 0;
+            ArmyNumber = 0;
+            ArmyOwner = 0;
+
+
 
         }
-        public Tile(int TerrainType, int SettelmentType = 0, int SettelmentLevel = 0, int PlayerControl = 0)//all args constructor
+        public Tile(int TerrainType,int TileNumber , int SettelmentType = 0, int SettelmentLevel = 0, int PlayerControl = 0, int ArmyNumber = 0, int ArmyOwner = 0 )//all args constructor
         {
+            this.TileNumber = TileNumber;
             this.TerrainType = TerrainType;
             this.SettlementType = SettelmentType;
             this.SettlementLevel = SettelmentLevel;
             this.PlayerControl = PlayerControl;
+            this.ArmyNumber = ArmyNumber;
+            this.ArmyOwner = ArmyOwner;
         }
+        
 
         //property
 
@@ -110,7 +122,7 @@ namespace ClassLibraryForProject
         public string PrintTile()
         {
 
-            string tile = String.Format("{0} {1} {2} {3}|", TerrainType,SettlementType,SettlementLevel,PlayerControl);
+            string tile = String.Format("{0} {1} {2} {3} {4} {5} {6}|",TileNumber, TerrainType,SettlementType,SettlementLevel,PlayerControl,ArmyNumber,ArmyOwner);
             return tile;
         }
     }

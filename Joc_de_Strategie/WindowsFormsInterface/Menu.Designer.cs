@@ -47,7 +47,7 @@ namespace WindowsFormsInterface
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(319, 53);
-            this.button1.Name = "New game";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 58);
             this.button1.TabIndex = 0;
             this.button1.Text = "New game";
@@ -57,7 +57,7 @@ namespace WindowsFormsInterface
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(319, 117);
-            this.button2.Name = "Load game";
+            this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 58);
             this.button2.TabIndex = 1;
             this.button2.Text = "Load game";
@@ -67,7 +67,7 @@ namespace WindowsFormsInterface
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(319, 181);
-            this.button3.Name = "Info";
+            this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(169, 58);
             this.button3.TabIndex = 2;
             this.button3.Text = "Info";
@@ -77,7 +77,7 @@ namespace WindowsFormsInterface
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(319, 245);
-            this.button4.Name = "Exit";
+            this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(169, 58);
             this.button4.TabIndex = 3;
             this.button4.Text = "Exit";

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -15,30 +16,48 @@ using static WindowsFormsInterface.NewGame;
 
 namespace WindowsFormsInterface
 {
-    public partial class Map : Form
+    public partial class GameScreen : Form
     {
 
-        private PictureBox[,] pictureBoxes = new PictureBox[10,10];
-        private PictureBox[,] pictureBoxesback = new PictureBox[10,10];
+        private PictureBox[,] pictureBoxes = new PictureBox[10, 10];
+        private PictureBox[,] pictureBoxesback = new PictureBox[10, 10];
+        protected static int PlayerNumber = GetPlayerNumberNG();
+        protected static int MapNumber = GetMapNumberNG();
+        protected static int Savefile = GetSavefileNG();
 
-        protected static int PlayerNumber = GetPlayerNumber();
-        protected static int MapNumber = GetMapNumber();
-        protected static int Savefile = GetSavefile();
-        MapGenerator MAP = new MapGenerator();
+        //GameManager gameManager;
+
+        
+
+    MapGenerator MAP = new MapGenerator();
         PlayersManager players = new PlayersManager(PlayerNumber);
 
         protected static String CurrentSave = ConfigurationManager.AppSettings["NumeFisier0"];
-        //SaveManager_text_files file = new SaveManager_text_files(CurrentSave);
 
 
-        public Map()
+
+        public GameScreen()
         {
             InitializeComponent();
             this.Size = new Size(1200, 800);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(200, 100);
-            this.Text = "MAP";
-            
+            this.Text = "GameScreen";
+
+            switch (MapNumber)
+            {
+                case 1:
+                    MapGenerator MAP = new MapGenerator();
+                    break;
+                case 2:
+                    //MapGenerator MAP = new MapGenerator();
+                    break;
+                case 3:
+                    //MapGenerator MAP = new MapGenerator();
+                    break;
+
+            }
+
             //setting upt the map and savefiles
             switch (Savefile)
             {
@@ -74,23 +93,23 @@ namespace WindowsFormsInterface
 
                     if (rndm[k] == 1)
                     {
-                        pictureBoxes[i, j].Image = Image.FromFile("D:\\TEMP\\forest.png");
+                        pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/plain.png");
 
                     }
                     else if (rndm[k] == 2)
                     {
-                        pictureBoxes[i, j].Image = Image.FromFile("D:\\TEMP\\plain.png");
+                        pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/hill.png");
 
                     }
                     else if (rndm[k] == 3)
                     {
-                        pictureBoxes[i, j].Image = Image.FromFile("D:\\TEMP\\mountain.png");
+                        pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/forest.png");
 
 
                     }
                     else if (rndm[k] == 4)
                     {
-                        pictureBoxes[i, j].Image = Image.FromFile("D:\\TEMP\\hill.png");
+                        pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/mountain.png");
 
 
                     }
@@ -117,9 +136,9 @@ namespace WindowsFormsInterface
                     if (PlayerNumber == 2)
                     {
                         if (k == 0)
-                            pictureBoxesback[i, j].Image = Image.FromFile("D:\\TEMP\\Blue.png");
+                            pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Blue.png");
                         if (k == 99)
-                            pictureBoxesback[i, j].Image = Image.FromFile("D:\\TEMP\\Red.png");
+                            pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Orange.png");
 
                     }
 
@@ -156,7 +175,7 @@ namespace WindowsFormsInterface
             x = int.Parse(XY[0]);
             y = int.Parse(XY[1]);
 
-            pictureBoxesback[x,y].Image = Image.FromFile("D:\\TEMP\\Blue.png");
+            pictureBoxesback[x,y].Image = Image.FromFile("../Resourses/Players_colors/Blue.png");
 
         }
 
@@ -186,6 +205,11 @@ namespace WindowsFormsInterface
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

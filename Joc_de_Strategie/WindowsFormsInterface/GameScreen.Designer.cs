@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsInterface
 {
-    partial class Map
+    partial class GameScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -315,11 +315,12 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label6.Location = new System.Drawing.Point(309, 9);
+            this.label6.Location = new System.Drawing.Point(309, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 22);
             this.label6.TabIndex = 18;
             this.label6.Text = "Player collor :";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -409,7 +410,7 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Gold:";
             // 
-            // Map
+            // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -429,7 +430,7 @@
             this.Controls.Add(this.NextTurn);
             this.Controls.Add(this.treeView2);
             this.Controls.Add(this.Back_to_menu);
-            this.Name = "Map";
+            this.Name = "GameScreen";
             this.Text = "Map";
             this.Load += new System.EventHandler(this.Map_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
