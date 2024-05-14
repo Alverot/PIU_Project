@@ -70,6 +70,7 @@ namespace ClassLibraryForProject
             }
             return mapp;
         }
+
         public string SearchAndReturn(int player) 
         {
             string st = String.Format("Playerul {0} detine teritoriile cu coordonatele:",player);

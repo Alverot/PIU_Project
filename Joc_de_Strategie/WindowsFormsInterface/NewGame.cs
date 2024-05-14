@@ -1,4 +1,5 @@
 ﻿using ClassLibraryForProject;
+using Joc_de_Strategie;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Joc_de_Strategie.GameManager;
 
 namespace WindowsFormsInterface
 {
@@ -29,7 +31,7 @@ namespace WindowsFormsInterface
         {
             InitializeComponent();
             this.Size = new Size(900, 450);
-            this.StartPosition = FormStartPosition.Manual;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Location = new Point(200, 150);
             this.Font = new Font("Arial", 13, FontStyle.Bold);
             this.ForeColor = Color.DarkCyan;
@@ -54,6 +56,7 @@ namespace WindowsFormsInterface
         {
             if(PlayerNumberNG != 0 && MapNumberNG != 0 && SavefileNG != 0)
             {
+                SetLoadOrNew(0);// 0 = new game , 1 = load game;
                 this.Hide();
                 var map = new GameScreen();
                 map.Closed += (s, args) => this.Close();

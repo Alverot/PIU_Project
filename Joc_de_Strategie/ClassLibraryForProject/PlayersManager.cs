@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibraryForProject;
 
-namespace Nivel_stocare_date
+
+namespace ClassLibraryForProject
 {
     public class PlayersManager
     {

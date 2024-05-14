@@ -53,7 +53,7 @@ namespace Joc_de_Strategie
                         break;
                     case "L":
                         Console.WriteLine("(Temporat) salveaza niste date in fisierul text selectat");
-                        SaveManager_text_files.SaveGame(players, CurrentSave, MAPPP);
+                        SaveManager_text_files.SaveGame(players, CurrentSave, MAPPP,0);
                         Console.ReadKey();
                         break;
                     case "I":

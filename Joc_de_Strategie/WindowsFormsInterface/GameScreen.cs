@@ -10,9 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibraryForProject;
-using Nivel_stocare_date;
 using static WindowsFormsInterface.NewGame;
-
+using Joc_de_Strategie;
 
 namespace WindowsFormsInterface
 {
@@ -26,55 +25,21 @@ namespace WindowsFormsInterface
         protected static int Savefile = GetSavefileNG();
 
         //GameManager gameManager;
+        GameManager gameManager = new GameManager(PlayerNumber, MapNumber, Savefile);
 
         
-
-    MapGenerator MAP = new MapGenerator();
-        PlayersManager players = new PlayersManager(PlayerNumber);
-
-        protected static String CurrentSave = ConfigurationManager.AppSettings["NumeFisier0"];
-
-
-
         public GameScreen()
         {
             InitializeComponent();
             this.Size = new Size(1200, 800);
-            this.StartPosition = FormStartPosition.Manual;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Location = new Point(200, 100);
             this.Text = "GameScreen";
 
-            switch (MapNumber)
-            {
-                case 1:
-                    MapGenerator MAP = new MapGenerator();
-                    break;
-                case 2:
-                    //MapGenerator MAP = new MapGenerator();
-                    break;
-                case 3:
-                    //MapGenerator MAP = new MapGenerator();
-                    break;
+            gameManager.GameManagerInitiation();//makes all the preparations for the game for the settings that have been introduced
 
-            }
 
-            //setting upt the map and savefiles
-            switch (Savefile)
-            {
-                case 1:
-                    CurrentSave = ConfigurationManager.AppSettings["NumeFisier1"];
-                    break;
-                case 2:
-                    CurrentSave = ConfigurationManager.AppSettings["NumeFisier2"];
-                    break;
-                case 3:
-                    CurrentSave = ConfigurationManager.AppSettings["NumeFisier3"];
-                    break;
-            }
-
-            SaveManager_text_files.SaveGame(players, CurrentSave, MAP);
             int[] rndm = new int[100];
-
             rndm = RandomGeneratorForMultipleUses.RandomArrayGenerator(100);
             int k = 0;
             for (int i = 0; i < 10; i++)

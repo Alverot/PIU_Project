@@ -19,7 +19,7 @@ namespace Nivel_stocare_date
             Stream streamTextFile = File.Open(FileName, FileMode.OpenOrCreate);
             streamTextFile.Close();
         }
-        public static void SaveGame(PlayersManager players, string FileName, MapGenerator map)
+        public static void SaveGame(PlayersManager players, string FileName, MapGenerator map, int turn)
         {
 
             File.WriteAllText(FileName, players.ConvertPlayersForSave());
@@ -28,7 +28,10 @@ namespace Nivel_stocare_date
 
                 //strwri.WriteLine(player.ConvetPlayerForSave(nr));//va trebui modificat formatul pentru a putea salva resursele la mai multi playeri
                 strwri.WriteLine(map.ConvertMAPForSave());
+                strwri.WriteLine(turn.ToString());
             }
+            //File.AppendAllText(FileName, turn.ToString());
+
         }
 
         //needs to be done

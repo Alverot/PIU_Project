@@ -19,7 +19,7 @@ namespace WindowsFormsInterface
         {
             InitializeComponent();
             this.Size = new Size(800, 400);
-            this.StartPosition = FormStartPosition.Manual;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Location = new Point(200, 150);
             this.Font = new Font("Arial", 15, FontStyle.Bold);
             this.ForeColor = Color.DarkCyan;
@@ -43,7 +43,10 @@ namespace WindowsFormsInterface
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var LG = new LoadGame();
+            LG.Closed += (s, args) => this.Close();
+            LG.Show();
         }
         private void button3_Click(object sender, EventArgs e)
         {
