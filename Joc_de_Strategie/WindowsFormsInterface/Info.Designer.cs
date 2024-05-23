@@ -62,7 +62,7 @@ namespace WindowsFormsInterface
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(69, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1238, 336);
+            this.label2.Size = new System.Drawing.Size(519, 360);
             this.label2.TabIndex = 2;
             this.label2.Text = resources.GetString("label2.Text");
             this.label2.Click += new System.EventHandler(this.label2_Click);

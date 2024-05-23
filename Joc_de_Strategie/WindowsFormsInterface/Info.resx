@@ -118,10 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Am subestimat dimensiunea reala a proiectului meu     :((
-Tot ce am apucat sa implementez este sistemul de construit cladiri care genereaza resurse si doar cateva moduri de a le consuma
-impreuna cu save si load.
- 
+    <value>Am subestimat dimensiunea reala a proiectului meu
+Tot ce am apucat sa implementez este :
+-sistemul de construit cladiri care genereaza resurse  
+-Save /Load
+-Sistemul care gestioneaza turele
 
 
  
