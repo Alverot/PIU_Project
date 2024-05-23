@@ -37,6 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.InfoSave3 = new System.Windows.Forms.Label();
+            this.InfoSave2 = new System.Windows.Forms.Label();
+            this.InfoSave1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -117,11 +120,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 64);
+            this.label2.Location = new System.Drawing.Point(9, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(229, 16);
+            this.label2.Size = new System.Drawing.Size(243, 16);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Please select the number of players : \r\n";
+            this.label2.Text = "Please select the number of playersss : \r\n";
             // 
             // label3
             // 
@@ -141,11 +144,39 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Select the save file :\r\n";
             // 
+            // InfoSave3
+            // 
+            this.InfoSave3.AutoSize = true;
+            this.InfoSave3.Location = new System.Drawing.Point(316, 267);
+            this.InfoSave3.Name = "InfoSave3";
+            this.InfoSave3.Size = new System.Drawing.Size(0, 16);
+            this.InfoSave3.TabIndex = 11;
+            // 
+            // InfoSave2
+            // 
+            this.InfoSave2.AutoSize = true;
+            this.InfoSave2.Location = new System.Drawing.Point(316, 251);
+            this.InfoSave2.Name = "InfoSave2";
+            this.InfoSave2.Size = new System.Drawing.Size(0, 16);
+            this.InfoSave2.TabIndex = 10;
+            // 
+            // InfoSave1
+            // 
+            this.InfoSave1.AutoSize = true;
+            this.InfoSave1.Location = new System.Drawing.Point(316, 235);
+            this.InfoSave1.Name = "InfoSave1";
+            this.InfoSave1.Size = new System.Drawing.Size(7, 16);
+            this.InfoSave1.TabIndex = 9;
+            this.InfoSave1.Text = "\r\n";
+            // 
             // NewGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 407);
+            this.Controls.Add(this.InfoSave3);
+            this.Controls.Add(this.InfoSave2);
+            this.Controls.Add(this.InfoSave1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -174,5 +205,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label InfoSave3;
+        private System.Windows.Forms.Label InfoSave2;
+        private System.Windows.Forms.Label InfoSave1;
     }
 }

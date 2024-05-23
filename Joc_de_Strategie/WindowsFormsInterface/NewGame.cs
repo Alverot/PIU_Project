@@ -1,8 +1,10 @@
 ﻿using ClassLibraryForProject;
 using Joc_de_Strategie;
+using Nivel_stocare_date;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -21,10 +23,7 @@ namespace WindowsFormsInterface
         private Label error;
         
 
-        public static int GetPlayerNumberNG()
-        {
-            return PlayerNumberNG;
-        }
+        public static int GetPlayerNumberNG(){ return PlayerNumberNG; }
         public static int GetMapNumberNG() { return MapNumberNG; }
         public static int GetSavefileNG() { return SavefileNG; }
         public NewGame()
@@ -36,6 +35,41 @@ namespace WindowsFormsInterface
             this.Font = new Font("Arial", 13, FontStyle.Bold);
             this.ForeColor = Color.DarkCyan;
             this.Text = "NEW GAME";
+            int TurnNbSave1 = SaveManager_text_files.CheckForSave(ConfigurationManager.AppSettings["NumeFisier1"]);
+            if (TurnNbSave1 < 0)
+            {
+                this.InfoSave1.Text = "Save is Empty";
+            }
+            else
+            {
+                string tmporal = String.Format("Save is at turn {0}!!", TurnNbSave1);
+                this.InfoSave1.Text = tmporal;
+                this.InfoSave1.ForeColor = Color.Red;
+            }
+
+            int TurnNbSave2 = SaveManager_text_files.CheckForSave(ConfigurationManager.AppSettings["NumeFisier2"]);
+            if (TurnNbSave2 < 0)
+            {
+                this.InfoSave2.Text = "Save is Empty";
+            }
+            else
+            {
+                string tmporal = String.Format("Save is at turn {0}!!", TurnNbSave2);
+                this.InfoSave2.Text = tmporal;
+                this.InfoSave2.ForeColor = Color.Red;
+            }
+
+            int TurnNbSave3 = SaveManager_text_files.CheckForSave(ConfigurationManager.AppSettings["NumeFisier3"]);
+            if (TurnNbSave3 < 0)
+            {
+                this.InfoSave3.Text = "Save is Empty";
+            }
+            else
+            {
+                string tmporal = String.Format("Save is at turn {0}!!", TurnNbSave3);
+                this.InfoSave3.Text = tmporal;
+                this.InfoSave3.ForeColor = Color.Red;
+            }
         }
 
         private void NewGame_Load(object sender, EventArgs e)
@@ -56,7 +90,7 @@ namespace WindowsFormsInterface
         {
             if(PlayerNumberNG != 0 && MapNumberNG != 0 && SavefileNG != 0)
             {
-                SetLoadOrNew(0);// 0 = new game , 1 = load game;
+                GameScreen.SetLoadOrNew(0);// 0 = new game , 1 = load game;
                 this.Hide();
                 var map = new GameScreen();
                 map.Closed += (s, args) => this.Close();

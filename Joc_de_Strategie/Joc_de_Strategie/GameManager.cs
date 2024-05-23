@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,18 +19,21 @@ namespace Joc_de_Strategie
 {
     public class GameManager
     {
+        private const char SEPARATOR_LINII_FISIER = '\n';
+        private const char SEPARATOR_PRINCIPAL_FISIER = '|';
+        private const char SEPARATOR_SECUNDAR_FISIER = ' ';
 
-        protected static int PlayerNumber = 0;
+        protected static int PlayerNumber = 8;
         protected static int MapNumber = 0;
         protected static string Savefile = ConfigurationManager.AppSettings["NumeFisier0"];
-        protected static PlayersManager players = new PlayersManager(PlayerNumber);
-        protected static MapGenerator MAPP = new MapGenerator();
-        protected static int LoadOrNew = 0;//0 new game 1 load game from SaveFile
+        public static PlayersManager players = new PlayersManager(PlayerNumber);
+        public static MapGenerator MAPP = new MapGenerator();
         protected static int Turn = 0;
-        public static void SetLoadOrNew(int loadOrNew)
-        {
-            LoadOrNew = loadOrNew;
-        }
+
+
+        public int GetPlayerNumber() { return PlayerNumber; }
+        public int GetTurn() { return Turn; }
+
         public GameManager(int PN, int MN, int SF)
         {
             PlayerNumber = PN;
@@ -48,6 +52,7 @@ namespace Joc_de_Strategie
                     break;
             }
         }
+       
 
         public void GameManagerInitiation()
         {
@@ -65,6 +70,52 @@ namespace Joc_de_Strategie
             }
             //initial save
             SaveManager_text_files.SaveGame(players, Savefile, MAPP, Turn);
+        }
+
+
+        public void Save()
+        {
+            SaveManager_text_files.SaveGame(players, Savefile, MAPP, Turn);
+        }
+
+        public void ReadAndLoadSave(int SvNr)   //convert the text from a savefile to object for the program
+        {
+            switch (SvNr)
+            {
+                case 1:
+                    Savefile = ConfigurationManager.AppSettings["NumeFisier1"];
+                    break;
+                case 2:
+                    Savefile = ConfigurationManager.AppSettings["NumeFisier2"];
+                    break;
+                case 3:
+                    Savefile = ConfigurationManager.AppSettings["NumeFisier3"];
+                    break;
+            }
+            string FullStringOfSav = SaveManager_text_files.LoadGameTEXT(Savefile);
+            string[] lines = FullStringOfSav.Split(SEPARATOR_LINII_FISIER);
+            //load la playeri
+            Int32.TryParse(lines[0], out PlayerNumber);
+            players = new PlayersManager(PlayerNumber);
+            for(int i = 0 ; i < PlayerNumber; i++)
+            {
+                string[] line = lines[i+1].Split(SEPARATOR_PRINCIPAL_FISIER);
+                players.playersss[i] = new Player(Int32.Parse(line[1]), Int32.Parse(line[2]), Int32.Parse(line[3]), Int32.Parse(line[4]));
+            }
+
+            //load la harta
+            
+            for(int i = 0 ;i < 10; i++)
+            {
+                string[] line = lines[PlayerNumber + 2+i].Split(SEPARATOR_PRINCIPAL_FISIER);
+                for(int j = 0;j < 10; j++)
+                {
+                    string[] square = line[j].Split(SEPARATOR_SECUNDAR_FISIER);
+                    MAPP.MAP[i, j] = new Tile(Int32.Parse(square[1]), Int32.Parse(square[0]), Int32.Parse(square[2]), Int32.Parse(square[3]),Int32.Parse(square[4]), Int32.Parse(square[5]), Int32.Parse(square[6]));
+                }
+                
+            }
+            Turn = Int32.Parse(lines[PlayerNumber + 3 + 10]);
         }
 
 

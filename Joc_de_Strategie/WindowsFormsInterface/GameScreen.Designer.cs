@@ -68,29 +68,10 @@
             treeNode21,
             treeNode22,
             treeNode23});
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Node20");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Node21");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Node22");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Node23");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Node16", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode26,
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Node25");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Node26");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Node27");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Node28");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Node24", new System.Windows.Forms.TreeNode[] {
-            treeNode30,
-            treeNode31,
-            treeNode32,
-            treeNode33});
             this.Back_to_menu = new System.Windows.Forms.Button();
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.NextTurn = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.treeView3 = new System.Windows.Forms.TreeView();
             this.treeView4 = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -105,6 +86,18 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.XTextBox = new System.Windows.Forms.TextBox();
+            this.YTextBox = new System.Windows.Forms.TextBox();
+            this.FoodLable = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.WoodLable = new System.Windows.Forms.Label();
+            this.StoneLable = new System.Windows.Forms.Label();
+            this.GoldLable = new System.Windows.Forms.Label();
+            this.SelectTileButon = new System.Windows.Forms.Button();
+            this.TurnLable = new System.Windows.Forms.Label();
+            this.ErorOutOfMap = new System.Windows.Forms.Label();
+            this.TileInfoBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -113,6 +106,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Back_to_menu
@@ -193,11 +187,11 @@
             this.treeView1.TabIndex = 6;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // treeView3
+            // treeView4
             // 
-            this.treeView3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView3.Location = new System.Drawing.Point(708, 439);
-            this.treeView3.Name = "treeView3";
+            this.treeView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView4.Location = new System.Drawing.Point(920, 439);
+            this.treeView4.Name = "treeView4";
             treeNode15.Name = "Node20";
             treeNode15.Text = "Node20";
             treeNode16.Name = "Node21";
@@ -218,40 +212,9 @@
             treeNode23.Text = "Node28";
             treeNode24.Name = "Node24";
             treeNode24.Text = "Node24";
-            this.treeView3.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            this.treeView4.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode19,
             treeNode24});
-            this.treeView3.Size = new System.Drawing.Size(172, 105);
-            this.treeView3.TabIndex = 7;
-            // 
-            // treeView4
-            // 
-            this.treeView4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView4.Location = new System.Drawing.Point(920, 439);
-            this.treeView4.Name = "treeView4";
-            treeNode25.Name = "Node20";
-            treeNode25.Text = "Node20";
-            treeNode26.Name = "Node21";
-            treeNode26.Text = "Node21";
-            treeNode27.Name = "Node22";
-            treeNode27.Text = "Node22";
-            treeNode28.Name = "Node23";
-            treeNode28.Text = "Node23";
-            treeNode29.Name = "Node16";
-            treeNode29.Text = "Node16";
-            treeNode30.Name = "Node25";
-            treeNode30.Text = "Node25";
-            treeNode31.Name = "Node26";
-            treeNode31.Text = "Node26";
-            treeNode32.Name = "Node27";
-            treeNode32.Text = "Node27";
-            treeNode33.Name = "Node28";
-            treeNode33.Text = "Node28";
-            treeNode34.Name = "Node24";
-            treeNode34.Text = "Node24";
-            this.treeView4.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode29,
-            treeNode34});
             this.treeView4.Size = new System.Drawing.Size(172, 105);
             this.treeView4.TabIndex = 8;
             // 
@@ -295,9 +258,9 @@
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
             this.label4.Location = new System.Drawing.Point(886, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 22);
+            this.label4.Size = new System.Drawing.Size(24, 22);
             this.label4.TabIndex = 16;
-            this.label4.Text = "x,y";
+            this.label4.Text = "x:";
             // 
             // label5
             // 
@@ -320,7 +283,6 @@
             this.label6.Size = new System.Drawing.Size(119, 22);
             this.label6.TabIndex = 18;
             this.label6.Text = "Player collor :";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -332,7 +294,6 @@
             this.label7.Size = new System.Drawing.Size(96, 22);
             this.label7.TabIndex = 19;
             this.label7.Text = "Resourses";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -363,10 +324,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.FoodLable);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.WoodLable);
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Size = new System.Drawing.Size(281, 45);
             this.splitContainer1.SplitterDistance = 131;
@@ -379,10 +342,12 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.StoneLable);
             this.splitContainer2.Panel1.Controls.Add(this.label10);
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.GoldLable);
             this.splitContainer2.Panel2.Controls.Add(this.label11);
             this.splitContainer2.Size = new System.Drawing.Size(281, 45);
             this.splitContainer2.SplitterDistance = 131;
@@ -410,13 +375,138 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Gold:";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label12.Location = new System.Drawing.Point(971, 168);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 22);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "y:";
+            // 
+            // XTextBox
+            // 
+            this.XTextBox.Location = new System.Drawing.Point(916, 168);
+            this.XTextBox.Name = "XTextBox";
+            this.XTextBox.Size = new System.Drawing.Size(49, 22);
+            this.XTextBox.TabIndex = 25;
+            // 
+            // YTextBox
+            // 
+            this.YTextBox.Location = new System.Drawing.Point(994, 170);
+            this.YTextBox.Name = "YTextBox";
+            this.YTextBox.Size = new System.Drawing.Size(49, 22);
+            this.YTextBox.TabIndex = 26;
+            // 
+            // FoodLable
+            // 
+            this.FoodLable.AutoSize = true;
+            this.FoodLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FoodLable.ForeColor = System.Drawing.Color.DarkCyan;
+            this.FoodLable.Location = new System.Drawing.Point(56, 12);
+            this.FoodLable.Name = "FoodLable";
+            this.FoodLable.Size = new System.Drawing.Size(24, 22);
+            this.FoodLable.TabIndex = 27;
+            this.FoodLable.Text = "x:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsInterface.Properties.Resources.Blue;
+            this.pictureBox1.Location = new System.Drawing.Point(450, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(51, 50);
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
+            // WoodLable
+            // 
+            this.WoodLable.AutoSize = true;
+            this.WoodLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WoodLable.ForeColor = System.Drawing.Color.DarkCyan;
+            this.WoodLable.Location = new System.Drawing.Point(60, 14);
+            this.WoodLable.Name = "WoodLable";
+            this.WoodLable.Size = new System.Drawing.Size(24, 22);
+            this.WoodLable.TabIndex = 28;
+            this.WoodLable.Text = "x:";
+            // 
+            // StoneLable
+            // 
+            this.StoneLable.AutoSize = true;
+            this.StoneLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoneLable.ForeColor = System.Drawing.Color.DarkCyan;
+            this.StoneLable.Location = new System.Drawing.Point(60, 14);
+            this.StoneLable.Name = "StoneLable";
+            this.StoneLable.Size = new System.Drawing.Size(24, 22);
+            this.StoneLable.TabIndex = 28;
+            this.StoneLable.Text = "x:";
+            // 
+            // GoldLable
+            // 
+            this.GoldLable.AutoSize = true;
+            this.GoldLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoldLable.ForeColor = System.Drawing.Color.DarkCyan;
+            this.GoldLable.Location = new System.Drawing.Point(56, 14);
+            this.GoldLable.Name = "GoldLable";
+            this.GoldLable.Size = new System.Drawing.Size(24, 22);
+            this.GoldLable.TabIndex = 28;
+            this.GoldLable.Text = "x:";
+            // 
+            // SelectTileButon
+            // 
+            this.SelectTileButon.Location = new System.Drawing.Point(1058, 170);
+            this.SelectTileButon.Name = "SelectTileButon";
+            this.SelectTileButon.Size = new System.Drawing.Size(75, 23);
+            this.SelectTileButon.TabIndex = 28;
+            this.SelectTileButon.Text = "Select";
+            this.SelectTileButon.UseVisualStyleBackColor = true;
+            this.SelectTileButon.Click += new System.EventHandler(this.SelectTileButon_Click);
+            // 
+            // TurnLable
+            // 
+            this.TurnLable.AutoSize = true;
+            this.TurnLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TurnLable.ForeColor = System.Drawing.Color.DarkCyan;
+            this.TurnLable.Location = new System.Drawing.Point(927, 653);
+            this.TurnLable.Name = "TurnLable";
+            this.TurnLable.Size = new System.Drawing.Size(58, 22);
+            this.TurnLable.TabIndex = 29;
+            this.TurnLable.Text = "Turn :\r\n";
+            // 
+            // ErorOutOfMap
+            // 
+            this.ErorOutOfMap.AutoSize = true;
+            this.ErorOutOfMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErorOutOfMap.ForeColor = System.Drawing.Color.DarkCyan;
+            this.ErorOutOfMap.Location = new System.Drawing.Point(917, 134);
+            this.ErorOutOfMap.Name = "ErorOutOfMap";
+            this.ErorOutOfMap.Size = new System.Drawing.Size(0, 22);
+            this.ErorOutOfMap.TabIndex = 30;
+            // 
+            // TileInfoBox
+            // 
+            this.TileInfoBox.FormattingEnabled = true;
+            this.TileInfoBox.ItemHeight = 16;
+            this.TileInfoBox.Location = new System.Drawing.Point(707, 439);
+            this.TileInfoBox.Name = "TileInfoBox";
+            this.TileInfoBox.Size = new System.Drawing.Size(173, 100);
+            this.TileInfoBox.TabIndex = 31;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1195, 705);
+            this.Controls.Add(this.TileInfoBox);
+            this.Controls.Add(this.ErorOutOfMap);
+            this.Controls.Add(this.TurnLable);
+            this.Controls.Add(this.SelectTileButon);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.YTextBox);
+            this.Controls.Add(this.XTextBox);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.splitContainer2);
-            this.Controls.Add(this.treeView3);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -445,6 +535,7 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,7 +547,6 @@
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.Button NextTurn;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TreeView treeView3;
         private System.Windows.Forms.TreeView treeView4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -471,5 +561,17 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox XTextBox;
+        private System.Windows.Forms.TextBox YTextBox;
+        private System.Windows.Forms.Label FoodLable;
+        private System.Windows.Forms.Label WoodLable;
+        private System.Windows.Forms.Label StoneLable;
+        private System.Windows.Forms.Label GoldLable;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button SelectTileButon;
+        private System.Windows.Forms.Label TurnLable;
+        private System.Windows.Forms.Label ErorOutOfMap;
+        private System.Windows.Forms.ListBox TileInfoBox;
     }
 }

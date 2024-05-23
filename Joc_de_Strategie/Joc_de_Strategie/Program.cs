@@ -16,7 +16,7 @@ namespace Joc_de_Strategie
         static void Main(string[] args)
         {
 
-            string CurrentSave = ConfigurationManager.AppSettings["NumeFisier0"];
+            string CurrentSave = ConfigurationManager.AppSettings["NumeFisier2"];
             //SaveManager_text_files file = new SaveManager_text_files(CurrentSave);
 
             //temporaty
@@ -24,6 +24,12 @@ namespace Joc_de_Strategie
             int plNumber = 7;
             PlayersManager players = new PlayersManager(plNumber);
             //temporaty
+            string asdadad = SaveManager_text_files.LoadGameTEXT(CurrentSave);
+            Console.Write(asdadad);
+
+            Console.ReadKey();
+            Console.ReadKey();
+
 
             string opt;
             do

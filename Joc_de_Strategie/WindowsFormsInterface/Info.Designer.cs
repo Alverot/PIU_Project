@@ -30,6 +30,7 @@ namespace WindowsFormsInterface
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,13 +59,13 @@ namespace WindowsFormsInterface
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(69, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.Font = new Font("Arial", 12, FontStyle.Bold);
+            this.label2.Size = new System.Drawing.Size(1238, 336);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Aici vor fi puse regulile jocului + informatii generale despre acesta\n \n \n \n \n \n \n\n\n\n\n\n" +
-                "Program realizat de Melinte Alexandru ";
+            this.label2.Text = resources.GetString("label2.Text");
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Info
             // 

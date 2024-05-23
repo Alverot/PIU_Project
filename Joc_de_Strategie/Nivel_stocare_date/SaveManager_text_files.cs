@@ -12,6 +12,9 @@ namespace Nivel_stocare_date
     public class SaveManager_text_files
     {
         private string FileName;
+        private const char SEPARATOR_LINII_FISIER = '\n';
+        private const char SEPARATOR_PRINCIPAL_FISIER = '|';
+        private const char SEPARATOR_SECUNDAR_FISIER = ' ';
 
         public SaveManager_text_files(string FileName)
         {
@@ -34,37 +37,31 @@ namespace Nivel_stocare_date
 
         }
 
-        //needs to be done
-        public static void LoadGame(Player player, string FileName)
+        public static string LoadGameTEXT(string FileName)
         {
-            using (StreamWriter strwri = new StreamWriter(FileName, true))
-            {
-                strwri.WriteLine(player.PlayerInfo());
-            }
+            return File.ReadAllText(FileName);
         }
 
-        /* model pt citire din fisier :
-        public Student[] GetStudenti(out int nrStudenti)
-        {
-            Student[] studenti = new Student[NR_MAX_STUDENTI];
-
-            // instructiunea 'using' va apela streamReader.Close()
-            using (StreamReader streamReader = new StreamReader(numeFisier))
+        public static int CheckForSave(string FileName)         //returns the number of the turn if the game exists                                         
+        {                                                       //else returns -1 if there is no game saved in the file
+            
+            FileInfo fileInfo = new FileInfo(FileName);
+            if(fileInfo.Length == 0)
             {
-                string linieFisier;
-                nrStudenti = 0;
-
-                // citeste cate o linie si creaza un obiect de tip Student
-                // pe baza datelor din linia citita
-                while ((linieFisier = streamReader.ReadLine()) != null)
-                {
-                    studenti[nrStudenti++] = new Student(linieFisier);
-                }
+                return -1;
             }
+            else
+            {
+                string FullStringOfSav = File.ReadAllText(FileName);
+                string[] lines = FullStringOfSav.Split(SEPARATOR_LINII_FISIER);
+                //load la playeri
+                int PlayerNumber;
+                Int32.TryParse(lines[0], out PlayerNumber);
 
-            return studenti;
+                int Turn = Int32.Parse(lines[PlayerNumber + 3 + 10]);
+                return Turn;
+            }
+            
         }
-         */
-
     }
 }

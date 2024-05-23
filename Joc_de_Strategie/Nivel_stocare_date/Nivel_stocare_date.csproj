@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SaveManager_memory.cs" />
     <Compile Include="SaveManager_text_files.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

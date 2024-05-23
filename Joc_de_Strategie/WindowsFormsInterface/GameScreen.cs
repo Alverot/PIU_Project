@@ -20,12 +20,40 @@ namespace WindowsFormsInterface
 
         private PictureBox[,] pictureBoxes = new PictureBox[10, 10];
         private PictureBox[,] pictureBoxesback = new PictureBox[10, 10];
-        protected static int PlayerNumber = GetPlayerNumberNG();
-        protected static int MapNumber = GetMapNumberNG();
-        protected static int Savefile = GetSavefileNG();
+        protected static int PlayerNumber = 0;// GetPlayerNumberNG();
+        protected static int MapNumber = 1;// GetMapNumberNG();
+        protected static int SavefileNG = 1;// GetSavefileNG();
+
+        protected static int SelectedTileX = 0;// GetSavefileNG();
+        protected static int SelectedTileY = 0;// GetSavefileNG();
+
+        protected static int LoadOrNew = 0;//0 new game 1 load game from SaveFile
+        protected static bool initiation = false;
+
+        public static void SetLoadOrNew(int loadOrNew)
+        {
+            LoadOrNew = loadOrNew;
+        }
 
         //GameManager gameManager;
-        GameManager gameManager = new GameManager(PlayerNumber, MapNumber, Savefile);
+        protected static GameManager gameManager = new GameManager(PlayerNumber, MapNumber, SavefileNG);
+        public static void InitiateGameManager()
+        {
+            if(LoadOrNew == 0)
+            {
+                PlayerNumber = GetPlayerNumberNG();
+                MapNumber = GetMapNumberNG();
+                SavefileNG = GetSavefileNG();
+                gameManager = new GameManager(PlayerNumber, MapNumber, SavefileNG);
+                gameManager.GameManagerInitiation();//makes all the preparations for the game for the settings that have been introduced
+            }
+            else
+            {
+                SavefileNG = LoadGame.GetSavefileLG();
+                gameManager.ReadAndLoadSave(SavefileNG);
+                PlayerNumber = gameManager.GetPlayerNumber();
+            }
+        }
 
         
         public GameScreen()
@@ -36,11 +64,13 @@ namespace WindowsFormsInterface
             this.Location = new Point(200, 100);
             this.Text = "GameScreen";
 
-            gameManager.GameManagerInitiation();//makes all the preparations for the game for the settings that have been introduced
-
-
-            int[] rndm = new int[100];
-            rndm = RandomGeneratorForMultipleUses.RandomArrayGenerator(100);
+            if(initiation == false)
+            {
+                InitiateGameManager();
+                initiation = true;
+            }
+            
+            
             int k = 0;
             for (int i = 0; i < 10; i++)
             {
@@ -56,27 +86,23 @@ namespace WindowsFormsInterface
 
                     // de modificat adresele
 
-                    if (rndm[k] == 1)
+                    if (GameManager.MAPP.MAP[i,j].TerrainType == 1)
                     {
                         pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/plain.png");
 
                     }
-                    else if (rndm[k] == 2)
+                    else if (GameManager.MAPP.MAP[i, j].TerrainType == 2)
                     {
                         pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/hill.png");
 
                     }
-                    else if (rndm[k] == 3)
+                    else if (GameManager.MAPP.MAP[i, j].TerrainType == 3)
                     {
                         pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/forest.png");
-
-
                     }
-                    else if (rndm[k] == 4)
+                    else if (GameManager.MAPP.MAP[i, j].TerrainType == 4)
                     {
                         pictureBoxes[i, j].Image = Image.FromFile("../Resourses/Tiles/mountain.png");
-
-
                     }
 
                     Controls.Add(pictureBoxes[i, j]);
@@ -97,25 +123,51 @@ namespace WindowsFormsInterface
                     pictureBoxesback[i, j].TabIndex = 2;
                     pictureBoxesback[i, j].TabStop = false;
 
-
-                    if (PlayerNumber == 2)
-                    {
-                        if (k == 0)
+                    if (GameManager.MAPP.MAP[i, j].PlayerControl == 1 )
                             pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Blue.png");
-                        if (k == 99)
-                            pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Orange.png");
-
-                    }
+                    if (GameManager.MAPP.MAP[i, j].PlayerControl == 2)
+                            pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Red.png");
 
                     pictureBoxesback[i, j].SendToBack();
                     Controls.Add(pictureBoxesback[i, j]);
                     k++;
                 }
             }
-
+            FoodLable.Text = GameManager.players.playersss[0].Food.ToString();
+            WoodLable.Text = GameManager.players.playersss[0].Wood.ToString();
+            StoneLable.Text = GameManager.players.playersss[0].Stone.ToString();
+            GoldLable.Text = GameManager.players.playersss[0].Gold.ToString();
+            TurnLable.Text = String.Format("Turn : {0}", gameManager.GetTurn());
 
         }
+        private void RefreshScreen()
+        {
+            
 
+            int k = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (GameManager.MAPP.MAP[i, j].PlayerControl == 0)
+                        pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Empty.png");
+                    if (GameManager.MAPP.MAP[i, j].PlayerControl == 1)
+                        pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Blue.png");
+                    if (GameManager.MAPP.MAP[i, j].PlayerControl == 2)
+                        pictureBoxesback[i, j].Image = Image.FromFile("../Resourses/Players_colors/Red.png");
+
+                    pictureBoxesback[i, j].SendToBack();
+                    Controls.Add(pictureBoxesback[i, j]);
+                    k++;
+                }
+            }
+            FoodLable.Text = GameManager.players.playersss[0].Food.ToString();
+            WoodLable.Text = GameManager.players.playersss[0].Wood.ToString();
+            StoneLable.Text = GameManager.players.playersss[0].Stone.ToString();
+            GoldLable.Text = GameManager.players.playersss[0].Gold.ToString();
+            TurnLable.Text = String.Format("Turn : {0}", gameManager.GetTurn());
+        }
 
         private void Map_Load(object sender, EventArgs e)
         {
@@ -124,6 +176,9 @@ namespace WindowsFormsInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
+            gameManager.Save();
+            LoadOrNew = 0;
+            initiation = false;
             this.Hide();
             var menu = new Menu();
             menu.Closed += (s, args) => this.Close();
@@ -133,15 +188,20 @@ namespace WindowsFormsInterface
         private void MapPictureBox_Click(object sender, EventArgs e)
         {
 
+            RefreshScreen();
             PictureBox pictureBox = ((PictureBox)sender);
-            int x, y;
             string[] XY;  
             XY = pictureBox.Name.Split('_');
-            x = int.Parse(XY[0]);
-            y = int.Parse(XY[1]);
-
-            pictureBoxesback[x,y].Image = Image.FromFile("../Resourses/Players_colors/Blue.png");
-
+            XTextBox.Text = XY[0];
+            YTextBox.Text = XY[1];
+            SelectedTileX = int.Parse(XY[0]);
+            SelectedTileY = int.Parse(XY[1]);
+            TileInfoBox.Items.Clear();
+            string[] InfoTil =GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TileInfo().Split('\n');
+            for (int i = 0; i< InfoTil.Length ; i++)
+                TileInfoBox.Items.Add(InfoTil[i]);
+            pictureBoxesback[SelectedTileX, SelectedTileY].Image = Image.FromFile("../Resourses/Players_colors/Black.png");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -163,19 +223,36 @@ namespace WindowsFormsInterface
         {
 
         }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        private void SelectTileButon_Click(object sender, EventArgs e)
         {
 
-        }
+            RefreshScreen();
 
-        private void label7_Click(object sender, EventArgs e)
-        {
+            int x, y;
+            bool X, Y;
+            X = int.TryParse(XTextBox.Text,out x);
+            Y = int.TryParse(YTextBox.Text,out y);
+            if (X  == false) { x =0; }
+            if (Y == false) { y = 0; }
+            if (x >=0 && x<=9 && y >=0 && y<=9)
+            {
+                ErorOutOfMap.Text = "";
+                ErorOutOfMap.ForeColor = Color.Red;
+                SelectedTileX = x;
+                SelectedTileY = y;
+                pictureBoxesback[SelectedTileX, SelectedTileY].Image = Image.FromFile("../Resourses/Players_colors/Black.png");
+                TileInfoBox.Items.Clear();
+                string[] InfoTil = GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TileInfo().Split('\n');
+                for (int i = 0; i < InfoTil.Length; i++)
+                    TileInfoBox.Items.Add(InfoTil[i]);
+                pictureBoxesback[SelectedTileX, SelectedTileY].Image = Image.FromFile("../Resourses/Players_colors/Black.png");
 
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
+            }
+            else
+            {
+                ErorOutOfMap.Text = "Coordonate in afara Harti!!";
+                ErorOutOfMap.ForeColor = Color.Red;
+            }
 
         }
     }

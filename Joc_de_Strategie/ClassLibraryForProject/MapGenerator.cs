@@ -10,7 +10,7 @@ namespace ClassLibraryForProject
     {
         private int size;//poate o sa fac si optiunea sa creezi 3 feluri de harti( 10/10 ,20/20,30/30)
 
-        private Tile[,] MAP = new Tile[10,10];
+        public Tile[,] MAP = new Tile[10,10];
 
         public MapGenerator(int size=10)
         {
@@ -36,12 +36,16 @@ namespace ClassLibraryForProject
             MAP[i, j].PlayerControl = p;
             MAP[i, j].ArmyNumber = an;
             MAP[i, j].ArmyOwner = ao;
-
         }
+
+
         public void SetTylePlayer(int i, int j, int p)
         {
             MAP[i, j].PlayerControl = p;
         }
+
+
+
 
         public string PrintMAP()
         {
