@@ -119,6 +119,43 @@ namespace Joc_de_Strategie
         }
 
 
+        public void NEXTTURN()
+        {
+            for(int i = 0 ; i < 10; i++)
+            {
+                for(int j=0 ; j < 10; j++)
+                {
+                    if(MAPP.MAP[i, j].PlayerControl != 0)
+                    {
+                        int playerNB = MAPP.MAP[i, j].PlayerControl - 1 ;
+                        if(MAPP.MAP[i, j].SettlementType != 0)
+                        {
+                            int settelType = MAPP.MAP[i, j].SettlementType;
+                            switch(settelType)
+                            {
+                                case 1:
+                                    players.playersss[playerNB].Gold = players.playersss[playerNB].Gold + 10 *  MAPP.MAP[i, j].SettlementLevel;
+                                    break;
+                                case 2:
+                                    players.playersss[playerNB].Gold = players.playersss[playerNB].Gold + 100 * MAPP.MAP[i, j].SettlementLevel;
+                                    break;
+                                case 3:
+                                    players.playersss[playerNB].Food = players.playersss[playerNB].Food + 10 * MAPP.MAP[i, j].SettlementLevel;
+                                    break;
+                                case 4:
+                                    players.playersss[playerNB].Wood = players.playersss[playerNB].Wood + 10 * MAPP.MAP[i, j].SettlementLevel;
+                                    break;
+                                case 5:
+                                    players.playersss[playerNB].Stone = players.playersss[playerNB].Stone + 10 * MAPP.MAP[i, j].SettlementLevel;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            Turn++;
+        }
+
 
 }
 }

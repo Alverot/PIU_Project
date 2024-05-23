@@ -31,15 +31,14 @@ namespace ClassLibraryForProject
             Empty = 0,
             Village = 1,
             City =2,
-            Metropolis =3,
-            Stone_mine =4,
-            Farm =5,
-            Wood_cutting_camp=6
+            Farm = 3,
+            Wood_cutting_camp = 4,
+            Stone_mine = 5
         };
         
         public int TileNumber { get; set; }  //the number of the tyle in the map
         public int TerrainType { set; get; }    //this can be 1 = plain/ 2 = hill /3 = fores/4 = mountain  maybe more types if i have time
-        public int SettlementType { set; get; }  //i have not decided yet on the types 0= none
+        public int SettlementType { set; get; }  //1 village 2 city 3 farm 4 lunberCamp 5 mine
         public int SettlementLevel { set; get; } // will be from 1 to 10 and 0 if nothing exists 
         public int PlayerControl { set; get; }   //value from 0 to 8 . 0 means nobody controls it 1 to 8 means player 1 ,player 2 ....
         public int ArmyNumber { set; get; }    // the number of the army from the army array(each element of that aray will be an army)
@@ -98,10 +97,9 @@ namespace ClassLibraryForProject
             {   info = info + string.Format("Settlement : none\n");}
             else if (SettlementType == 1) { info = info + string.Format($"Settlement Type :{Settlement_Type.Village.ToString()}\n"); }
             else if (SettlementType == 2) { info = info + string.Format($"Settlement Type :{Settlement_Type.City.ToString()}\n"); }
-            else if (SettlementType == 3) { info = info + string.Format($"Settlement Type :{Settlement_Type.Metropolis.ToString()}\n"); }
-            else if (SettlementType == 4) { info = info + string.Format($"Settlement Type :{Settlement_Type.Stone_mine.ToString()}\n"); }
-            else if (SettlementType == 5) { info = info + string.Format($"Settlement Type :{Settlement_Type.Farm.ToString()}\n"); }
-            else if (SettlementType == 6) { info = info + string.Format($"Settlement Type :{Settlement_Type.Wood_cutting_camp.ToString()}\n"); }
+            else if (SettlementType == 3) { info = info + string.Format($"Settlement Type :{Settlement_Type.Farm.ToString()}\n"); }
+            else if (SettlementType == 4) { info = info + string.Format($"Settlement Type :{Settlement_Type.Wood_cutting_camp.ToString()}\n"); }
+            else if (SettlementType == 5) { info = info + string.Format($"Settlement Type :{Settlement_Type.Stone_mine.ToString()}\n"); }
 
 
             if (SettlementType != 0)

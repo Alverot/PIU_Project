@@ -46,6 +46,12 @@ namespace WindowsFormsInterface
                 SavefileNG = GetSavefileNG();
                 gameManager = new GameManager(PlayerNumber, MapNumber, SavefileNG);
                 gameManager.GameManagerInitiation();//makes all the preparations for the game for the settings that have been introduced
+                GameManager.MAPP.MAP[0, 0].PlayerControl = 1;
+                GameManager.MAPP.MAP[0, 0].SettlementType = 1;
+                GameManager.MAPP.MAP[0, 0].SettlementLevel = 1;
+                GameManager.MAPP.MAP[9, 9].PlayerControl = 2;
+                GameManager.MAPP.MAP[9, 9].SettlementType = 1;
+                GameManager.MAPP.MAP[9, 9].SettlementLevel = 1;         // initializare pentru 2 jucatori
             }
             else
             {
@@ -167,6 +173,10 @@ namespace WindowsFormsInterface
             StoneLable.Text = GameManager.players.playersss[0].Stone.ToString();
             GoldLable.Text = GameManager.players.playersss[0].Gold.ToString();
             TurnLable.Text = String.Format("Turn : {0}", gameManager.GetTurn());
+            TileInfoBox.Items.Clear();
+            string[] InfoTil = GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TileInfo().Split('\n');
+            for (int i = 0; i < InfoTil.Length; i++)
+                TileInfoBox.Items.Add(InfoTil[i]);
         }
 
         private void Map_Load(object sender, EventArgs e)
@@ -177,12 +187,7 @@ namespace WindowsFormsInterface
         private void button1_Click(object sender, EventArgs e)
         {
             gameManager.Save();
-            LoadOrNew = 0;
-            initiation = false;
-            this.Hide();
-            var menu = new Menu();
-            menu.Closed += (s, args) => this.Close();
-            menu.Show();
+            this.Close();
         }
 
         private void MapPictureBox_Click(object sender, EventArgs e)
@@ -204,11 +209,6 @@ namespace WindowsFormsInterface
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -219,9 +219,27 @@ namespace WindowsFormsInterface
 
         }
 
+
+        private void treeView4_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode selectedNode = e.Node;
+            int option = selectedNode.Index;
+            if(GameManager.players.playersss[0].Gold >= 150 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl  == 0)
+            {
+                GameManager.players.playersss[0].Gold = GameManager.players.playersss[0].Gold - 150;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl = 1;
+
+            }
+            
+            RefreshScreen();
+
+
+        }
+
         private void NextTurn_Click(object sender, EventArgs e)
         {
-
+            gameManager.NEXTTURN();
+            RefreshScreen();
         }
         private void SelectTileButon_Click(object sender, EventArgs e)
         {
@@ -254,6 +272,89 @@ namespace WindowsFormsInterface
                 ErorOutOfMap.ForeColor = Color.Red;
             }
 
+        }
+
+        private void ClamT_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Gold >= 150 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 0)
+            {
+                GameManager.players.playersss[0].Gold = GameManager.players.playersss[0].Gold - 150;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl = 1;
+            }
+            RefreshScreen();
+
+        }
+
+        private void ConsVillage_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Food >= 100 && GameManager.players.playersss[0].Wood >= 50  && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 1 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType == 0)
+            {
+                GameManager.players.playersss[0].Food = GameManager.players.playersss[0].Food - 100;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood - 50;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType = 1;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel = 1;
+            }
+            RefreshScreen();
+        }
+
+        private void ConstFarm_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Wood >= 50 && GameManager.players.playersss[0].Stone >= 25 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 1 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType == 0 && (GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TerrainType == 1 || GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TerrainType == 2))
+            {
+                GameManager.players.playersss[0].Stone = GameManager.players.playersss[0].Stone - 25;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood - 50;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType = 3;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel = 1;
+            }
+            RefreshScreen();
+        }
+
+        private void ConsCamp_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Food >= 50 && GameManager.players.playersss[0].Wood >= 25 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 1 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType == 0 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TerrainType == 3)
+            {
+                GameManager.players.playersss[0].Food = GameManager.players.playersss[0].Food - 50;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood - 25;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType = 4;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel = 1;
+            }
+            RefreshScreen();
+        }
+
+        private void ConsMine_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Wood >= 50 && GameManager.players.playersss[0].Food >= 50 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 1 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType == 0 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].TerrainType == 4)
+            {
+                GameManager.players.playersss[0].Food = GameManager.players.playersss[0].Food - 50;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood - 50;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType = 5;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel = 1;
+            }
+            RefreshScreen();
+        }
+
+        private void UpgradeB_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Stone >= 50 && GameManager.players.playersss[0].Wood >= 50 && GameManager.players.playersss[0].Food >= 50 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].PlayerControl == 1 && GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementType != 0  &&  GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel <= 10)
+            {
+                GameManager.players.playersss[0].Food = GameManager.players.playersss[0].Food - 50;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood - 50;
+                GameManager.players.playersss[0].Stone = GameManager.players.playersss[0].Stone - 50;
+                GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel = GameManager.MAPP.MAP[SelectedTileX, SelectedTileY].SettlementLevel + 1;
+            }
+            RefreshScreen();
+        }
+
+        private void Trade_Click(object sender, EventArgs e)
+        {
+            if (GameManager.players.playersss[0].Gold >= 50)
+            {
+                GameManager.players.playersss[0].Gold = GameManager.players.playersss[0].Gold - 50;
+                GameManager.players.playersss[0].Food = GameManager.players.playersss[0].Food + 10;
+                GameManager.players.playersss[0].Wood = GameManager.players.playersss[0].Wood + 10;
+                GameManager.players.playersss[0].Stone = GameManager.players.playersss[0].Stone + 10;
+                RefreshScreen();
+            }
         }
     }
 }
